@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOVICO Software</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/TimesheetModuleSimulator.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="NavBarContainer">
+
+            <div class="LogoBar">
+                <img class="BackImage" alt="Back to Previous View" src="img/back_button.png" />
+                <img class="LogoImage" alt="Dovico logo" src="img/nav_logo_dovico.png" />
+
+                <button class="UserButton" type="button" disabled="disabled">
+                    <span id="spanUserName">Test</span><p class="UserButtonDownArrow"></p>
+                </button>
+            </div>
+
+            <div class="MenuBar">
+                <div class="MenuBarItemContainer">
+                    <div class="MenuBarItem">
+                        <span>Welcome!</span><p class="MenuItemDownArrow"></p>
+                    </div>
+                    
+                    <div class="MenuBarSubItems">
+                        <a href="?t=ApiInfo">API Info</a>
+                        <a href="?t=UserModule">@ViewData["UserModuleMenuCaption"]</a>
+                    </div>
+                </div>                
+            </div>
+
+            <div class="NavBottom"></div>
+        </nav>
+    </header>
+
+
+    <div class="PageContent">
+        @RenderBody()
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

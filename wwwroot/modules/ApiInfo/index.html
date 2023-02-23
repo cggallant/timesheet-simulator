@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        P {
+            margin-top:10px;
+        }
+
+        .example {
+            margin-top: 4px;
+            padding: 8px;
+            background-color: #d3d3d3;
+        }
+        .example-indent {
+            padding-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>API Info</h1>
+
+    <p>For normal Timesheet API calls, the root is <b>https://api.dovico.com/</b> and then you add the resource you want (e.g. employees/?version=7).</p>
+    <p>For modules, Timesheet will handle calling the API for you. You call a Timesheet root URI similar to how you call the normal API.</p>
+    <p>To get the timesheet root URI, a property of the parent iFrame is available as shown in the following code snippet:</p>
+
+    <div class="example">
+        const rootUri = window.frameElement.getAttribute("data-APIRequestURI");
+    </div>
+
+    <br /><br /><br />Timesheet API documenation:
+    <br /><a href="https://www.dovico.com/developer/API_doc/index.htm" target="_blank">https://www.dovico.com/developer/API_doc/index.htm</a>
+
+    <p>In production, a form of this file will be needed but not the API credentials properties because Timesheet handles that for you.</p>
+    <p>The structure needed for the ModuleManifest.json file in this simulator:</p>
+    <div class="example">
+        {
+        <div class="example-indent">
+            "Name": "My module's name",
+            <br />"MenuCaption": "Hello User Module",
+            <br />"StartPageUri": "index.html",
+
+            <br /><br />"ApiConsumerSecret": "consumer secret from your Timesheet db",
+            <br />"ApiDataAcessToken": "system or user data access token from your Timesheet db"
+        </div>
+        }
+    </div>
+</body>
+</html>
